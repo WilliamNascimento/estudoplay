@@ -1,0 +1,23 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+GET     /                           controllers.HomeController.index
+GET     /profissional                   controllers.HomeController.cadastroDeProfissional
+
+POST    /profissional/novo              controllers.HomeController.cadastroDeNovoProfissional
+
+GET     /profissional/list              controllers.HomeController.listaTudo
+
+GET     /profissional/edit/:id          controllers.HomeController.editarProfissional(id: Long)
+
+GET     /profissional/deletar/:id           controllers.HomeController.deletar(id: Long)
+
+
+# An example controller showing how to use dependency injection
+GET     /count                      controllers.CountController.count
+# An example controller showing how to write asynchronous code
+GET     /message                    controllers.AsyncController.message
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

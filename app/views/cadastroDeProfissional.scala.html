@@ -1,0 +1,22 @@
+@(message: String)(formProfissional: Form[Profissional])
+
+@import helper._
+@import b4.vertical.fieldConstructor
+
+@main("Cadastro de Produto") {
+
+    @*nosso content*@
+    <h1 class="display-4">@message de Profissional</h1>
+    @b4.form(CSRF(routes.HomeController.cadastroDeNovoProfissional)){
+        @b4.hidden(formProfissional("id"))
+        @b4.text(formProfissional("nome"), '_label -> "Nome")
+        @b4.text(formProfissional("profissao"), '_label -> "Profissão")
+
+        <div class="form-inline">
+            @b4.submit('class -> "btn btn-primary"){Cadastrar}
+            <a href="/profissional/list" 
+            class="btn btn-default">Cancelar</a>
+        </div>
+    }
+        
+}
